@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array of Objects - Students</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #4e73df, #1cc88a);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 500px;
+            margin: 80px auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        h2 {
+            color: #4e73df;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #4e73df;
+            color: white;
+            padding: 8px;
+        }
+        td {
+            padding: 8px;
+        }
+        .result {
+            font-weight: bold;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .average {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .topper {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Student Marks Record</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Marks</th>
+            </tr>
+        </thead>
+        <tbody id="studentTable">
+        </tbody>
+    </table>
+    <div id="average" class="result average"></div>
+    <div id="topper" class="result topper"></div>
+</div>
+<script>
+    var students = [
+        { name: "Ali", marks: 85 },
+        { name: "Sara", marks: 92 },
+        { name: "Ahmed", marks: 78 }
+    ];
+    var total = 0;
+    var topper = students[0];
+    var tableBody = document.getElementById("studentTable");
+    for (var i = 0; i < students.length; i++) {
+        var row = "<tr><td>" + students[i].name + "</td><td>" + students[i].marks + "</td></tr>";
+        tableBody.innerHTML += row;
+        total += students[i].marks;
+        if (students[i].marks > topper.marks) {
+            topper = students[i];
+        }
+    }
+    var average = total / students.length;
+    document.getElementById("average").innerHTML = "Average Marks: " + average.toFixed(2);
+    document.getElementById("topper").innerHTML = "Topper Student: " + topper.name + " (" + topper.marks + " Marks)";
+</script>
+</body>
+</html>

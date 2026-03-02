@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Number Checker</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #4e73df, #1cc88a);
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .container {
+            width: 350px;
+            margin: auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            color: #4e73df;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            border: 2px solid #4e73df;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            padding: 10px 25px;
+            background-color: #4e73df;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2e59d9;
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .positive {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .negative {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        .zero {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Number Checker</h2>
+
+        <input type="number" id="numberInput" placeholder="Enter a number">
+        <br>
+        <button onclick="checkNumber()">Check</button>
+
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function checkNumber() {
+
+            let input = document.getElementById("numberInput").value;
+            let result = document.getElementById("result");
+
+            if (input === "") {
+                alert("Please enter a number!");
+                return;
+            }
+
+            let number = parseInt(input);
+            let message = "";
+
+            if (number % 2 === 0) {
+                message = "Even Number - ";
+            } else {
+                message = "Odd Number - ";
+            }
+
+            if (number > 0) {
+                message += "Positive";
+                result.className = "positive";
+            } 
+            else if (number < 0) {
+                message += "Negative";
+                result.className = "negative";
+            } 
+            else {
+                message += "Zero";
+                result.className = "zero";
+            }
+
+            result.innerHTML = message;
+        }
+    </script>
+
+</body>
+</html>

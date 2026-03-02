@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Array Operations</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            background: white;
+            width: 450px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        h2 {
+            color: #5a67d8;
+            margin-bottom: 20px;
+        }
+
+        .result-box {
+            background-color: #f1f5ff;
+            margin: 10px 0;
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .result-box:hover {
+            background-color: #dbe4ff;
+            transform: scale(1.05);
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #2b6cb0;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="card">
+    <h2>Array Based Web Page</h2>
+
+    <div id="array" class="result-box"></div>
+    <div id="sum" class="result-box"></div>
+    <div id="largest" class="result-box"></div>
+    <div id="reverse" class="result-box"></div>
+
+</div>
+
+<script>
+
+    // 1. Create array of 6 numbers
+    let numbers = [18, 7, 45, 23, 60, 12];
+
+    let sum = 0;
+    let largest = numbers[0];
+
+    // 2 & 3. Loop for sum and largest
+    for (let i = 0; i < numbers.length; i++) {
+        sum += numbers[i];
+
+        if (numbers[i] > largest) {
+            largest = numbers[i];
+        }
+    }
+
+    // 4. Reverse array
+    let reversedArray = numbers.slice().reverse();
+
+    // 5. Display on page
+    document.getElementById("array").innerHTML =
+        "<span class='highlight'>Original Array:</span> " + numbers;
+
+    document.getElementById("sum").innerHTML =
+        "<span class='highlight'>Sum:</span> " + sum;
+
+    document.getElementById("largest").innerHTML =
+        "<span class='highlight'>Largest Number:</span> " + largest;
+
+    document.getElementById("reverse").innerHTML =
+        "<span class='highlight'>Reverse Order:</span> " + reversedArray;
+
+</script>
+
+</body>
+</html>
